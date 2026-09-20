@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ShippingController;
 
-Route::get('/', function () {
-    return view('index');
-});
+// Rute untuk menampilkan halaman awal
+Route::get('/', [ShippingController::class, 'index'])->name('shipping.index');
+
+// Rute untuk menangani proses kalkulasi (submit form)
+Route::post('/', [ShippingController::class, 'calculate'])->name('shipping.calculate');
